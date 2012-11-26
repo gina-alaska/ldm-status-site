@@ -7,3 +7,4 @@ gem "sprockets-helpers"
 gem 'haml'
 gem "sass"
 gem 'bootstrap-sass'
+gem 'activesupport'

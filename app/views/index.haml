@@ -10,6 +10,10 @@
         %dt="Time Added"
         %dd=queue.files.last.mtime
         %dt="Size"
-        %dd=queue.files.last.size      
+        %dd
+          -if queue.files.last.size > 1024 * 1024
+            = "#{queue.files.last.size / (1024*1024)}M"
+          -else   
+            = "#{queue.files.last.size / 1024}K"
     - else
       No items in queue
