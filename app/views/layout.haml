@@ -1,0 +1,19 @@
+!!!5
+%html
+  %head
+    %title
+      ldm.gina.alaska.edu
+    %link{ href: "/bootstrap/css/bootstrap.css", type: "text/css", rel: "stylesheet" }
+    %link{ href: "/stylesheets/application.css", type: "text/css", rel: "stylesheet" }
+    %script{ src: "/bootstrap/js/bootstrap-min.js" }
+  %body
+    .navbar.navbar-inverse.navbar-static-top
+      .navbar-inner
+        %a{href:"http://ldm.gina.alaska.edu", class: "brand"}
+          ldm.gina.alaska.edu
+        %ul.nav.pull-right
+          %li
+            %a{href:"#"}
+              About
+    .container
+      =yield
