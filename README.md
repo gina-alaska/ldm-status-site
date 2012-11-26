@@ -17,4 +17,4 @@ Limitations
 
 Only queues/items that are cached on disk are shown. 
 
-
+v0.1.0
