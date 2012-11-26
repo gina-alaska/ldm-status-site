@@ -1,0 +1,15 @@
+-@ldm.queues.each do |name, queue|
+  .well
+    %p          
+      .lead
+        =name
+    -if queue.files.any? 
+      %dl.dl-horizontal
+        %dt="Last Item"
+        %dd=queue.files.last.basename
+        %dt="Time Added"
+        %dd=queue.files.last.mtime
+        %dt="Size"
+        %dd=queue.files.last.size      
+    - else
+      No items in queue
