@@ -1,1 +1,1 @@
-web: rackup
+web: puma -C config/puma.rb
