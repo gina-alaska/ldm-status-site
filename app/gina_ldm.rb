@@ -1,10 +1,10 @@
 require 'sinatra/base'
 
-
 class GinaLdm < Sinatra::Base
   set :ldm, Ldm.new
+  set :server, :puma 
  
- get "/" do
+  get "/" do
     @ldm = settings.ldm
     haml :index
   end

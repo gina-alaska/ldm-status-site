@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'sinatra'
 gem "sprockets"
@@ -8,3 +8,5 @@ gem 'haml'
 gem "sass"
 gem 'bootstrap-sass'
 gem 'activesupport'
+gem 'puma'
+gem 'foreman'
