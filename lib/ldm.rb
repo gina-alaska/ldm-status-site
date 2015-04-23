@@ -2,12 +2,13 @@ require 'pathname'
 require "./lib/ldm/queue.rb"
 
 class Ldm
-  LDM_DATA_PATH = "/usr/local/ldm/data/ldm"
+  LDM_DATA_PATH = ENV['LDM_DATA_PATH']
   attr_reader :queues
 
 
   def initialize
     @queues = Hash.new
+
     queues = Dir.glob(File.join(LDM_DATA_PATH, '*')).select{|d| File.directory?(d) }
 
     queues.each do |queue|
