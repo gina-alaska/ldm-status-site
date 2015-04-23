@@ -2,7 +2,7 @@ require 'pathname'
 require "./lib/ldm/queue.rb"
 
 class Ldm
-  LDM_DATA_PATH = "/tmp/exp"
+  LDM_DATA_PATH = "/usr/local/ldm/data/ldm"
   attr_reader :queues
 
 

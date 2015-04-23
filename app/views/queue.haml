@@ -1,16 +1,19 @@
-%thead
-  %tr
-    %th=name
-  %tr
-    %th
-      Filename
-    %th
-      Timestamp
-    %th
-      Size
-%tbody
-  -queue.files.each do |file|
-    %tr
-      %td=file.basename
-      %td=file.mtime
-      %td=file.size
+%table
+	%thead
+		%tr
+			%th=@name
+		%tr
+			%th
+				Filename
+			%th
+				Timestamp
+			%th
+				Size
+	%tbody
+		- @queue.files.each do |file|
+			%tr
+				%td
+					%a(href="/data/#{File.basename(file)}")= File.basename(file)
+				%td= File.mtime(file)
+				%td= File.size(file)
+

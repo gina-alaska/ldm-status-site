@@ -13,5 +13,11 @@ class GinaLdm < Sinatra::Base
     haml :status
   end
 
+  get "/queue/:queue" do
+    @name = params[:queue].to_s
+    @queue = settings.ldm.queues[@name]
+    haml :queue
+  end
+
   run! if app_file == $0
 end

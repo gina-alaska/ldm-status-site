@@ -6,14 +6,14 @@
     -if queue.files.any? 
       %dl.dl-horizontal
         %dt="Last Item"
-        %dd=queue.files.last.basename
+        %dd=queue.files.first.basename
         %dt="Time Added"
-        %dd=queue.files.last.mtime
+        %dd=queue.files.first.mtime
         %dt="Size"
         %dd
-          -if queue.files.last.size > 1024 * 1024
-            = "#{queue.files.last.size / (1024*1024)}M"
+          -if queue.files.first.size > 1024 * 1024
+            = "#{queue.files.first.size / (1024*1024)}M"
           -else   
-            = "#{queue.files.last.size / 1024}K"
+            = "#{queue.files.first.size / 1024}K"
     - else
       No items in queue

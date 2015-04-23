@@ -3,7 +3,8 @@ require 'active_support/core_ext/numeric'
 class Ldm
   class Queue
     CACHE_DURATION = 1.minute
-  
+
+    MATCH_LIST = /^SSEC_AWIPS_(GEOCAT-MOD|VIIRS-AK)/
     attr_reader :last_updated
 
     def initialize(path)
@@ -26,9 +27,12 @@ class Ldm
     def scan_queue!
       return false unless refresh_cache?
       if(File.exists?(@path) and File.directory?(@path))
-        @files = Dir.glob(File.join(@path,"*")).sort{|x,y| File.mtime(x) <=> File.mtime(y)}.collect{|f| Pathname.new(f) }
-
+        @files = Dir.glob(File.join(@path,"SSEC_AWIPS_*")).select{|f| f =~ /(MOD_ALAS|VIIRS-AK)/}
+	@files << Dir.glob(File.join(@path,"*sport*"))
+	@files.flatten!
+	@files.sort!{|x,y| File.mtime(y) <=> File.mtime(x)}.map{|f| Pathname.new(f) }
         @last_updated = Time.now
+
       end
 
       true
