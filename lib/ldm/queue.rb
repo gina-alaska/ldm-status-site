@@ -29,9 +29,9 @@ class Ldm
       return false unless refresh_cache?
       if(File.exists?(@path) and File.directory?(@path))
         @files = Dir.glob(File.join(@path,"SSEC_AWIPS_*")).select{|f| f =~ /(MOD_ALAS|VIIRS-AK)/}
-	@files << Dir.glob(File.join(@path,"*sport*"))
-	@files.flatten!
-	@files.sort!{|x,y| File.mtime(y) <=> File.mtime(x)}.map{|f| Pathname.new(f) }
+      	@files << Dir.glob(File.join(@path,"*sport*"))
+      	@files.flatten!
+      	@files.sort!{|x,y| File.mtime(y) <=> File.mtime(x)}.map{|f| Pathname.new(f) }
         @last_updated = Time.now
 
       end

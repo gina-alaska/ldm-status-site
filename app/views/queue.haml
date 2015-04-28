@@ -13,7 +13,7 @@
 		- @queue.files.each do |file|
 			%tr
 				%td
-					%a(href="/data/#{File.basename(file)}")= File.basename(file)
+					%a(href="/data/ldm/#{@name}/#{File.basename(file)}")= File.basename(file)
 				%td= File.mtime(file)
 				%td= File.size(file)
 
